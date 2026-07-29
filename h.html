@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Lý Phòng Trọ Giá Rẻ</title>
+    <link rel="stylesheet" href="n.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Phòng Trọ HSSV</div>
+        <ul class="menu-links">
+            <li><a href="#" class="active" id="nav-lobby" onclick="switchPage('lobby-page')">Sảnh Phòng</a></li>
+            <li><a href="#" id="nav-billing" onclick="switchPage('billing-page')">Tính Tiền Cuối Tháng</a></li>
+            <li><a href="cv.html" style="background-color: #f0edff; color: #6c5ce7;">&larr; Xem CV Tác Giả</a></li>
+            <li><a href="projects.html">My Projects</a></li>
+        </ul>
+    </nav>
+
+    <div id="lobby-page" class="page active-page">
+        <h2>Danh Sách Phòng Trống Trực Tuyến</h2>
+        <div class="room-grid" id="room-grid-container">
+            </div>
+    </div>
+
+    <div id="detail-page" class="page">
+        <h2>Chi Tiết Phòng Trọ</h2>
+        <div class="detail-container" id="room-detail-container">
+            </div>
+    </div>
+
+    <div id="billing-page" class="page">
+        <h2>Hóa Đơn Tính Tiền Phòng Mỗi Tháng</h2>
+        <div class="calc-box">
+            <div class="form-group">
+                <label for="room-select">Chọn phòng tính tiền:</label>
+                <select id="room-select" onchange="updateRoomPriceInForm()">
+                    </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Giá phòng cố định (VND):</label>
+                <input type="text" id="form-room-price" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="power-num">Số ký điện tiêu thụ (kWh):</label>
+                <input type="number" id="power-num" placeholder="Nhập số ký điện sử dụng trong tháng..." value="0">
+                <small style="color: #777;">Đơn giá điện: 3.000đ / kWh</small>
+            </div>
+
+            <div class="form-group">
+                <label for="water-num">Số khối nước tiêu thụ (m³):</label>
+                <input type="number" id="water-num" placeholder="Nhập số khối nước sử dụng trong tháng..." value="0">
+                <small style="color: #777;">Đơn giá nước: 15.000đ / m³</small>
+            </div>
+
+            <button class="btn-calc" onclick="calculateTotal()">Tính Thành Tiền & Xuất Hóa Đơn</button>
+
+            <div class="invoice-result" id="invoice-box">
+                <h3>Hóa Đơn Chi Tiết</h3>
+                <div id="invoice-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

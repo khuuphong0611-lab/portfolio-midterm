@@ -1,0 +1,284 @@
+/* === CẤU HÌNH CHUNG & BACKGROUND PHÙ HỢP HSSV/CÔNG NHÂN === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /* Màu nền gradient tươi sáng, phối màu trẻ trung, dễ chịu */
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #333;
+}
+
+/* === THANH MENU NAVIGATION === */
+nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6c5ce7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-links li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-links li a:hover, .menu-links li a.active {
+    background-color: #6c5ce7;
+    color: #fff;
+}
+
+/* === PHÂN TRANG (PAGES) === */
+.page {
+    display: none;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page.active-page {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2d3436;
+    border-left: 5px solid #6c5ce7;
+    padding-left: 10px;
+}
+
+/* === TRANG SẢNH PHÒNG (LOBBY) === */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.room-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #ddd;
+}
+
+.room-info {
+    padding: 20px;
+}
+
+.room-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #6c5ce7;
+}
+
+.room-price {
+    font-size: 18px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-detail {
+    display: inline-block;
+    background: #6c5ce7;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn-detail:hover {
+    background: #5b4bc4;
+}
+
+/* === TRANG CHI TIẾT PHÒNG === */
+.detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.detail-img {
+    flex: 1;
+    min-width: 300px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detail-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.detail-content p {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.price-highlight {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* === TRANG TÍNH TIỀN ĐIỆN NƯỚC === */
+.calc-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.btn-calc {
+    width: 100%;
+    padding: 12px;
+    background: #f2be7f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-calc:hover {
+    background: #edca7e;
+}
+
+.invoice-result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 5px solid #2ecc71;
+    border-radius: 0 8px 8px 0;
+    display: none;
+}
+
+.invoice-result h3 {
+    margin-bottom: 10px;
+    color: #2ecc71;
+}
+
+.invoice-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 18px;
+    color: #e74c3c;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+}@media screen and (max-width: 768px) {
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .logo{
+        text-align: center;
+    }
+
+    .menu-links{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .menu-links li{
+        list-style: none;
+        width: 100%;
+    }
+
+    .menu-links a{
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+}
